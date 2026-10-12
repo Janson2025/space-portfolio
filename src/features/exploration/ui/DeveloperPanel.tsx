@@ -46,14 +46,19 @@ function CheckSetting({ label, checked, onChange }: { label: string; checked: bo
 export function DeveloperPanel({ open, onOpenChange, settings, setSettings }: DeveloperPanelProps) {
   const [tab, setTab] = useState<ExplorePanelTab>('character');
 
-  const setShield = (id: ShieldId, enabled: boolean) => {
-    setSettings((current) => {
-      const shieldStates = { ...current.ship.shieldStates, [id]: enabled };
-      return {
-        ...current,
-        ship: { ...current.ship, shieldStates, shieldsEnabled: SHIELD_IDS.every((shieldId) => shieldStates[shieldId]) },
-      };
-    });
+  const setShield = (id: ShieldId, percent: number) => {
+    setSettings((current) => ({
+      ...current,
+      ship: { ...current.ship, shieldStates: { ...current.ship.shieldStates, [id]: percent / 100 } },
+    }));
+  };
+
+  const setAllShields = (percent: number) => {
+    const amount = percent / 100;
+    setSettings((current) => ({
+      ...current,
+      ship: { ...current.ship, shieldStates: Object.fromEntries(SHIELD_IDS.map((id) => [id, amount])) as Record<ShieldId, number> },
+    }));
   };
 
   return (
@@ -89,19 +94,12 @@ export function DeveloperPanel({ open, onOpenChange, settings, setSettings }: De
                 scene: { ...current.scene, groundSize: Math.max(current.scene.groundSize, targetSize * 0.874 + 136) },
               }))} />
               <CheckSetting label="Show collision proxies" checked={settings.ship.showCollisionProxies} onChange={(showCollisionProxies) => setSettings((current) => ({ ...current, ship: { ...current.ship, showCollisionProxies } }))} />
-              <CheckSetting label="All shields" checked={settings.ship.shieldsEnabled} onChange={(shieldsEnabled) => setSettings((current) => ({
-                ...current,
-                ship: {
-                  ...current.ship,
-                  shieldsEnabled,
-                  shieldStates: Object.fromEntries(SHIELD_IDS.map((id) => [id, shieldsEnabled])) as Record<ShieldId, boolean>,
-                },
-              }))} />
-              <details className="dev-shields-details">
-                <summary>Individual shield emitters</summary>
+              <RangeSetting label="All shields opacity" value={Math.round(SHIELD_IDS.reduce((total, id) => total + settings.ship.shieldStates[id], 0) / SHIELD_IDS.length * 100)} min={0} max={100} step={5} suffix="%" onChange={setAllShields} />
+              <details className="dev-shields-details" open>
+                <summary>Individual shield opacity</summary>
                 <div className="dev-shield-list">
                   {SHIELD_IDS.map((id) => (
-                    <CheckSetting key={id} label={SHIELD_LABELS[id]} checked={settings.ship.shieldStates[id]} onChange={(enabled) => setShield(id, enabled)} />
+                    <RangeSetting key={id} label={SHIELD_LABELS[id]} value={Math.round(settings.ship.shieldStates[id] * 100)} min={0} max={100} step={5} suffix="%" onChange={(percent) => setShield(id, percent)} />
                   ))}
                 </div>
               </details>

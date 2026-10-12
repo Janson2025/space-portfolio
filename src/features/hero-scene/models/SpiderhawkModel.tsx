@@ -9,7 +9,7 @@ interface SpiderhawkModelProps {
   targetSize?: number;
   alignToGround?: boolean;
   fitToBounds?: boolean;
-  shieldVisibility?: Record<string, boolean>;
+  shieldVisibility?: Record<string, number>;
 }
 
 function stableMaterialKey(material: THREE.Material) {
@@ -88,6 +88,14 @@ export function SpiderhawkModel({ targetSize = 4.2, alignToGround = false, fitTo
     return prepared;
   }, [scene, shieldVisibility !== undefined]);
 
+  const shieldMeshes = useMemo(() => {
+    const meshes: THREE.Mesh[] = [];
+    displayScene.traverse((object) => {
+      if (object instanceof THREE.Mesh && object.name.toLowerCase().includes('shield')) meshes.push(object);
+    });
+    return meshes;
+  }, [displayScene]);
+
   const transform = useMemo(() => {
     displayScene.updateMatrixWorld(true);
     const box = new THREE.Box3().setFromObject(displayScene);
@@ -108,15 +116,14 @@ export function SpiderhawkModel({ targetSize = 4.2, alignToGround = false, fitTo
 
   useFrame((_, delta) => {
     if (!shieldVisibility) return;
-    displayScene.traverse((object) => {
-      if (!(object instanceof THREE.Mesh) || !object.name.toLowerCase().includes('shield')) return;
-      const enabled = shieldVisibility[object.name] ?? false;
+    for (const object of shieldMeshes) {
+      const amount = THREE.MathUtils.clamp(shieldVisibility[object.name] ?? 0, 0, 1);
       const materials = Array.isArray(object.material) ? object.material : [object.material];
       for (const material of materials) {
         const baseOpacity = Number(material.userData.shieldBaseOpacity ?? material.opacity);
-        material.opacity = THREE.MathUtils.damp(material.opacity, enabled ? baseOpacity : 0, 7, delta);
+        material.opacity = THREE.MathUtils.damp(material.opacity, baseOpacity * amount, 7, delta);
       }
-    });
+    }
   });
 
   return (

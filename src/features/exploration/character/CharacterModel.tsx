@@ -1,5 +1,6 @@
 import { useFrame, useLoader } from '@react-three/fiber';
-import { useEffect, useMemo, useRef } from 'react';
+import { Component, Suspense, useEffect, useMemo, useRef } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
 import * as THREE from 'three';
 import { AnimationAction, AnimationMixer, Box3, Color, Vector3 } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -11,40 +12,41 @@ import idleUrl from '../../../../assets/animations/idle.fbx?url';
 import walkingUrl from '../../../../assets/animations/walking.fbx?url';
 import characterMaterialConfig from '../config/character-materials.json';
 
-interface CharacterModelProps {
-  motion: CharacterMotion;
-}
-
+interface CharacterModelProps { motion: CharacterMotion; }
 type CharacterMotion = 'idle' | 'walking' | 'running' | 'jump' | 'runningJump';
-
-interface CharacterActions {
-  idle: AnimationAction;
-  walking: AnimationAction;
+interface CharacterActions { idle: AnimationAction; walking: AnimationAction; }
+interface EditableMToonMaterial {
+  name: string; color?: Color; shadeColor?: Color; outlineColorFactor?: Color;
+  shadingShiftFactor?: number; shadingToonyFactor?: number; outlineWidthFactor?: number; opacity?: number;
 }
 
-interface EditableMToonMaterial {
-  name: string;
-  color?: Color;
-  shadeColor?: Color;
-  outlineColorFactor?: Color;
-  shadingShiftFactor?: number;
-  shadingToonyFactor?: number;
-  outlineWidthFactor?: number;
-  opacity?: number;
+export class CharacterLoadBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  componentDidCatch(error: Error, _info: ErrorInfo) {
+    console.error('Character asset failed to load; showing the character placeholder.', error);
+  }
+  render() { return this.state.failed ? this.props.fallback : this.props.children; }
 }
 
 export function CharacterModel({ motion }: CharacterModelProps) {
-  const gltf = useLoader(GLTFLoader, kateUrl, (loader) => {
-    loader.register((parser) => new VRMLoaderPlugin(parser));
-  });
-  const [idleFbx, walkingFbx] = useLoader(FBXLoader, [idleUrl, walkingUrl]);
+  const gltf = useLoader(GLTFLoader, kateUrl, (loader) => loader.register((parser) => new VRMLoaderPlugin(parser)));
   const vrm = gltf.userData.vrm as VRM | undefined;
-  const mixerRef = useRef<AnimationMixer | null>(null);
-  const actionsRef = useRef<CharacterActions | null>(null);
-  const previousMotionRef = useRef(motion);
+  const characterScene = vrm?.scene ?? gltf.scene;
+  const transform = useMemo(() => {
+    characterScene.updateMatrixWorld(true);
+    const box = new Box3().setFromObject(characterScene);
+    const size = box.getSize(new Vector3());
+    const center = box.getCenter(new Vector3());
+    const scale = size.y > 0 ? 1.7 / size.y : 1;
+    return { scale, position: [-center.x * scale, -box.min.y * scale, -center.z * scale] as [number, number, number] };
+  }, [characterScene]);
 
   useEffect(() => {
-    if (!vrm) return;
+    if (!vrm) {
+      console.warn('Kate.vrm loaded without VRM metadata; displaying its GLTF scene without VRM animation.');
+      return;
+    }
     const settingsByName = new Map(characterMaterialConfig.materials.map((settings) => [settings.name, settings]));
     vrm.scene.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
@@ -64,39 +66,38 @@ export function CharacterModel({ motion }: CharacterModelProps) {
     });
   }, [vrm]);
 
-  const clips = useMemo(() => {
-    if (!vrm) return null;
+  useFrame((_, delta) => vrm?.update(delta));
+  return <group position={transform.position} scale={transform.scale}>
+    <primitive object={characterScene} dispose={null} />
+    {vrm && <CharacterLoadBoundary fallback={null}><Suspense fallback={null}><CharacterAnimation vrm={vrm} motion={motion} /></Suspense></CharacterLoadBoundary>}
+  </group>;
+}
 
-    const idle = retargetAnimation(idleFbx, vrm, { logWarnings: false, animationClipName: 'mixamo.com' });
-    const walking = retargetAnimation(walkingFbx, vrm, { logWarnings: false, animationClipName: 'mixamo.com' });
-    if (!idle || !walking) throw new Error('Could not retarget the idle and walk clips to Kate.vrm.');
-    return { idle, walking };
+function CharacterAnimation({ vrm, motion }: { vrm: VRM; motion: CharacterMotion }) {
+  const [idleFbx, walkingFbx] = useLoader(FBXLoader, [idleUrl, walkingUrl]);
+  const mixerRef = useRef<AnimationMixer | null>(null);
+  const actionsRef = useRef<CharacterActions | null>(null);
+  const previousMotionRef = useRef(motion);
+  const clips = useMemo(() => {
+    try {
+      const idle = retargetAnimation(idleFbx, vrm, { logWarnings: false, animationClipName: 'mixamo.com' });
+      const walking = retargetAnimation(walkingFbx, vrm, { logWarnings: false, animationClipName: 'mixamo.com' });
+      if (!idle || !walking) throw new Error('Retargeting returned an empty clip.');
+      return { idle, walking };
+    } catch (error) {
+      console.warn('Could not retarget Kate’s animations; displaying the VRM without animation.', error);
+      return null;
+    }
   }, [idleFbx, walkingFbx, vrm]);
 
-  const transform = useMemo(() => {
-    if (!vrm) return { position: [0, 0, 0] as [number, number, number], scale: 1 };
-
-    vrm.scene.updateMatrixWorld(true);
-    const box = new Box3().setFromObject(vrm.scene);
-    const size = box.getSize(new Vector3());
-    const center = box.getCenter(new Vector3());
-    const scale = size.y > 0 ? 1.7 / size.y : 1;
-    return {
-      scale,
-      position: [-center.x * scale, -box.min.y * scale, -center.z * scale] as [number, number, number],
-    };
-  }, [vrm]);
-
   useEffect(() => {
-    if (!vrm || !clips) return;
-
+    if (!clips) return;
     const mixer = new AnimationMixer(vrm.scene);
     const idle = mixer.clipAction(clips.idle);
     const walking = mixer.clipAction(clips.walking);
     idle.play();
     mixerRef.current = mixer;
     actionsRef.current = { idle, walking };
-
     return () => {
       mixer.stopAllAction();
       mixer.uncacheRoot(vrm.scene);
@@ -108,7 +109,6 @@ export function CharacterModel({ motion }: CharacterModelProps) {
   useEffect(() => {
     const actions = actionsRef.current;
     if (!actions || previousMotionRef.current === motion) return;
-
     const moving = motion === 'walking' || motion === 'running' || motion === 'runningJump';
     const nextAction = moving ? actions.walking : actions.idle;
     const previousAction = moving ? actions.idle : actions.walking;
@@ -118,16 +118,6 @@ export function CharacterModel({ motion }: CharacterModelProps) {
     previousMotionRef.current = motion;
   }, [motion, clips]);
 
-  useFrame((_, delta) => {
-    mixerRef.current?.update(delta);
-    vrm?.update(delta);
-  });
-
-  if (!vrm) return null;
-
-  return (
-    <group position={transform.position} scale={transform.scale}>
-      <primitive object={vrm.scene} dispose={null} />
-    </group>
-  );
+  useFrame((_, delta) => mixerRef.current?.update(delta));
+  return null;
 }

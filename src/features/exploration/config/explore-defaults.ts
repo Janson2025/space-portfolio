@@ -1,4 +1,4 @@
-export const SHIELD_IDS = ['bird shield', 'shuttle1 shield', 'shuttle2 shield', 'shuttle3 shield'] as const;
+export const SHIELD_IDS = ['bird shield', 'shuttle1 shield', 'shuttle2 shield', 'shuttle3 shield', 'shield field'] as const;
 
 export type ShieldId = (typeof SHIELD_IDS)[number];
 export type ExplorePanelTab = 'character' | 'ship' | 'scene';
@@ -12,8 +12,7 @@ export interface ExploreSettings {
   };
   ship: {
     targetSize: number;
-    shieldsEnabled: boolean;
-    shieldStates: Record<ShieldId, boolean>;
+    shieldStates: Record<ShieldId, number>;
     showCollisionProxies: boolean;
   };
   scene: {
@@ -27,12 +26,12 @@ export const DEFAULT_EXPLORE_SETTINGS: ExploreSettings = {
   character: { walkSpeed: 2.15, runSpeed: 4.2, turnSpeed: 2.6, jumpImpulse: 5.4 },
   ship: {
     targetSize: 96,
-    shieldsEnabled: false,
     shieldStates: {
-      'bird shield': false,
-      'shuttle1 shield': false,
-      'shuttle2 shield': false,
-      'shuttle3 shield': false,
+      'bird shield': 0,
+      'shuttle1 shield': 0,
+      'shuttle2 shield': 0,
+      'shuttle3 shield': 0,
+      'shield field': 0,
     },
     showCollisionProxies: false,
   },
@@ -44,4 +43,5 @@ export const SHIELD_LABELS: Record<ShieldId, string> = {
   'shuttle1 shield': 'Shuttle 1',
   'shuttle2 shield': 'Shuttle 2',
   'shuttle3 shield': 'Shuttle 3',
+  'shield field': 'Shuttle shield field',
 };

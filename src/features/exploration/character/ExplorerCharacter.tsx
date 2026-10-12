@@ -1,10 +1,10 @@
 import { useKeyboardControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { CapsuleCollider, RapierRigidBody, RigidBody, useRapier } from '@react-three/rapier';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { MathUtils, Vector3 } from 'three';
 import type { Group } from 'three';
-import { CharacterModel } from './CharacterModel';
+import { CharacterLoadBoundary, CharacterModel } from './CharacterModel';
 import { FollowCamera } from '../camera/FollowCamera';
 import type { ExploreControl } from '../input/exploreKeyboardMap';
 import type { ExploreSettings } from '../config/explore-defaults';
@@ -18,9 +18,10 @@ interface ExplorerCharacterProps {
   spawnPosition: [number, number, number];
   controlsEnabled: boolean;
   cameraMode: 'follow' | 'orbit';
+  sceneId: string;
 }
 
-export function ExplorerCharacter({ settings, spawnPosition, controlsEnabled, cameraMode }: ExplorerCharacterProps) {
+export function ExplorerCharacter({ settings, spawnPosition, controlsEnabled, cameraMode, sceneId }: ExplorerCharacterProps) {
   const bodyRef = useRef<RapierRigidBody>(null);
   const visualRef = useRef<Group>(null);
   const yawRef = useRef(Math.PI);
@@ -35,10 +36,19 @@ export function ExplorerCharacter({ settings, spawnPosition, controlsEnabled, ca
   const { world } = useRapier();
   const [, getControls] = useKeyboardControls<ExploreControl>();
   const controllerRef = useRef<ReturnType<typeof world.createCharacterController> | null>(null);
+  const previousSceneRef = useRef(sceneId);
+  const pendingSpawnRef = useRef<[number, number, number] | null>(null);
 
   useEffect(() => {
-    bodyRef.current?.setTranslation({ x: spawnPosition[0], y: spawnPosition[1], z: spawnPosition[2] }, true);
-  }, [spawnPosition[0], spawnPosition[1], spawnPosition[2]]);
+    if (previousSceneRef.current === sceneId) return;
+    previousSceneRef.current = sceneId;
+    pendingSpawnRef.current = spawnPosition;
+    verticalSpeedRef.current = 0;
+    yawRef.current = Math.PI;
+    cameraYawRef.current = Math.PI;
+    motionRef.current = 'idle';
+    setMotion('idle');
+  }, [sceneId, spawnPosition[0], spawnPosition[1], spawnPosition[2]]);
 
   useEffect(() => {
     const controller = world.createCharacterController(0.025);
@@ -55,7 +65,14 @@ export function ExplorerCharacter({ settings, spawnPosition, controlsEnabled, ca
   useFrame((_, delta) => {
     const body = bodyRef.current;
     const controller = controllerRef.current;
-    if (!body || !controller) return;
+    if (!body) return;
+    if (pendingSpawnRef.current && body.isValid()) {
+      const [x, y, z] = pendingSpawnRef.current;
+      body.setTranslation({ x, y, z }, true);
+      body.setLinvel({ x: 0, y: 0, z: 0 }, true);
+      pendingSpawnRef.current = null;
+    }
+    if (!controller) return;
 
     const currentControls = getControls();
     const controls = controlsEnabled ? currentControls : {
@@ -124,11 +141,25 @@ export function ExplorerCharacter({ settings, spawnPosition, controlsEnabled, ca
 
   return (
     <>
-    <FollowCamera bodyRef={bodyRef} yawRef={cameraYawRef} enabled={cameraMode === 'follow'} />
+    <FollowCamera bodyRef={bodyRef} yawRef={cameraYawRef} enabled={cameraMode === 'follow'} resetKey={sceneId} />
     <RigidBody ref={bodyRef} type="kinematicPosition" colliders={false} position={spawnPosition}>
       <CapsuleCollider args={[0.5, 0.32]} />
       <group ref={visualRef} position={[0, -0.82, 0]} rotation={[0, Math.PI, 0]}>
-        <CharacterModel motion={motion} />
+                <CharacterLoadBoundary fallback={(
+          <mesh position={[0, 0.82, 0]} castShadow receiveShadow>
+            <capsuleGeometry args={[0.32, 1, 6, 10]} />
+            <meshStandardMaterial color="#f0a65e" emissive="#5c2910" emissiveIntensity={0.25} roughness={0.72} />
+          </mesh>
+        )}>
+          <Suspense fallback={(
+            <mesh position={[0, 0.82, 0]} castShadow receiveShadow>
+              <capsuleGeometry args={[0.32, 1, 6, 10]} />
+              <meshStandardMaterial color="#f0a65e" emissive="#5c2910" emissiveIntensity={0.25} roughness={0.72} />
+            </mesh>
+          )}>
+            <CharacterModel motion={motion} />
+          </Suspense>
+        </CharacterLoadBoundary>
       </group>
     </RigidBody>
     </>

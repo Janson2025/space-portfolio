@@ -16,13 +16,14 @@ export function ShipCollision({ targetSize, visible }: ShipCollisionProps) {
         const halfExtents = proxy.halfExtentsRatio.map((value) => value * targetSize) as [number, number, number];
         return (
           <group key={proxy.id} position={center}>
-            <CuboidCollider args={halfExtents} />
+            {/* <CuboidCollider args={halfExtents} />
+            we want to use treemesh not cube collider for the scene and ship
             {visible && (
               <mesh>
                 <boxGeometry args={halfExtents.map((value) => value * 2) as [number, number, number]} />
                 <meshBasicMaterial color="#ff5548" wireframe transparent opacity={0.65} depthWrite={false} />
               </mesh>
-            )}
+            )} */}
           </group>
         );
       })}

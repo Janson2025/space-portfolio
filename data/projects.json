@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {
+      "id": "interactive-3d",
+      "label": "Interactive 3D"
+    },
+    {
+      "id": "web-applications",
+      "label": "Web Applications"
+    },
+    {
+      "id": "science-data",
+      "label": "Science & Data"
+    },
+    {
+      "id": "games-mobile",
+      "label": "Games & Mobile"
+    },
+    {
+      "id": "3d-motion",
+      "label": "3D & Motion"
+    }
+  ],
+  "projects": [
+    {
+      "id": "r3f-wing-configurator",
+      "title": "USU Aerospace Wingcraft Web Application",
+      "description": "An interactive 3D airplane-wing modeling application for USU Aerospace. Users can adjust wing parameters and preview animated flight paths; Blender models and backend data sharing support the experience.",
+      "categoryId": "interactive-3d",
+      "technologies": [
+        "React Three Fiber",
+        "Three.js",
+        "Blender",
+        "Node.js"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://r3f-wing-configurator-demo.onrender.com"
+        }
+      ],
+      "featured": true,
+      "gallery": [
+        {
+          "src": "/images/projects/r3f-wing-configurator.jpg",
+          "alt": "Concept artwork for USU Aerospace Wingcraft Web Application"
+        }
+      ]
+    },
+    {
+      "id": "multiplex-hts",
+      "title": "Drug Screening Analysis Program",
+      "description": "A Python analysis tool for multiplex high-throughput drug-screening data from flow cytometry. The resume reports saving 200+ hours of manual work and about $1,500 in labor costs; the project is associated with a peer-reviewed study.",
+      "categoryId": "science-data",
+      "technologies": [
+        "Python",
+        "Flow Cytometry",
+        "Vercel"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://multiplexhighthroughputscreening.vercel.app/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/jacall2016/drugscreen-ph-flip700-yemk-live"
+        },
+        {
+          "label": "Publication",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39163740/"
+        }
+      ],
+      "featured": true,
+      "gallery": [
+        {
+          "src": "/images/projects/multiplex-hts.jpg",
+          "alt": "Concept artwork for Drug Screening Analysis Program"
+        }
+      ]
+    },
+    {
+      "id": "paleo-gis",
+      "title": "Paleobiological GIS Program",
+      "description": "An educational GIS application that maps fossil sites across geologic time using data from the Paleobiology Database.",
+      "categoryId": "web-applications",
+      "technologies": [
+        "JavaScript",
+        "CSS",
+        "GitHub Pages"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://jacall2016.github.io/paleoGISfinnal/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/jacall2016/paleoGISfinnal"
+        }
+      ],
+      "featured": true,
+      "gallery": [
+        {
+          "src": "/images/projects/paleo-gis.jpg",
+          "alt": "Concept artwork for Paleobiological GIS Program"
+        }
+      ]
+    },
+    {
+      "id": "character-config",
+      "title": "3D Character Configurator",
+      "description": "An interactive 3D character configurator built with React Three Fiber. Users can adjust character attributes, swap components, and preview changes in real time.",
+      "categoryId": "interactive-3d",
+      "technologies": [
+        "React Three Fiber"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://r3f-new-character-configurator.onrender.com/"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/character-config.jpg",
+          "alt": "Concept artwork for 3D Character Configurator"
+        }
+      ]
+    },
+    {
+      "id": "r3f-molecules",
+      "title": "3D Molecule Maker",
+      "description": "A browser-based 3D molecule maker and viewer built with React Three Fiber and GLTF models for interactive molecular visualization.",
+      "categoryId": "interactive-3d",
+      "technologies": [
+        "React Three Fiber",
+        "GLTF"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://rf3-molecules.onrender.com/"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/r3f-molecules.jpg",
+          "alt": "Concept artwork for 3D Molecule Maker"
+        }
+      ]
+    },
+    {
+      "id": "maze-ball-2",
+      "title": "3D Maze Ball Configurator",
+      "description": "A web-based 3D maze-ball configurator built with React Three Fiber and GLTF, allowing users to explore and customize maze layouts.",
+      "categoryId": "interactive-3d",
+      "technologies": [
+        "React Three Fiber",
+        "GLTF"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://janson2025.github.io/mazeball2/"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/maze-ball-2.jpg",
+          "alt": "Concept artwork for 3D Maze Ball Configurator"
+        }
+      ]
+    },
+    {
+      "id": "prototype",
+      "title": "3D Prototype Cube",
+      "description": "A small React Three Fiber prototype used to explore interactive 3D behavior, parameter-driven meshes, lighting, and animation.",
+      "categoryId": "interactive-3d",
+      "technologies": [
+        "React Three Fiber"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://r3f-prototype.onrender.com/"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/prototype.jpg",
+          "alt": "Concept artwork for 3D Prototype Cube"
+        }
+      ]
+    },
+    {
+      "id": "circles-mask-revealer",
+      "title": "Spinning Circle Image Revealer",
+      "description": "An image-reveal experiment using SVG masks and JavaScript animation to create a circular transition. Hovering changes the animation speed and circle size.",
+      "categoryId": "web-applications",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SVG"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://r3f-image-revealer.onrender.com"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/circles-mask-revealer.jpg",
+          "alt": "Concept artwork for Spinning Circle Image Revealer"
+        }
+      ]
+    },
+    {
+      "id": "plums",
+      "title": "Personal Learning System",
+      "description": "A personal learning and productivity tool for organizing objectives, tasks, and files, built with Next.js.",
+      "categoryId": "web-applications",
+      "technologies": [
+        "Next.js",
+        "Vercel"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "url": "https://plums-eosin.vercel.app/"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/plums.jpg",
+          "alt": "Concept artwork for Personal Learning System"
+        }
+      ]
+    },
+    {
+      "id": "android-maze-game",
+      "title": "Maze Solver Mobile Game",
+      "description": "A simple Android maze-solving game built to deliver an entertaining mobile experience.",
+      "categoryId": "games-mobile",
+      "technologies": [
+        "Java",
+        "Android Studio"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/jacall2016/testmaze1/tree/master"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/android-maze-game.jpg",
+          "alt": "Concept artwork for Maze Solver Mobile Game"
+        }
+      ]
+    },
+    {
+      "id": "crafted-cores-product-animation",
+      "title": "3D Product Advertising",
+      "description": "Created animated product demonstrations for Crafted Cores to support brand visibility and engagement.",
+      "categoryId": "3d-motion",
+      "technologies": [
+        "Blender",
+        "After Effects"
+      ],
+      "links": [
+        {
+          "label": "Daimyo Crystal video",
+          "url": "https://www.youtube.com/watch?v=BEz59u-SoHE"
+        },
+        {
+          "label": "Dark Emperor Crystal video",
+          "url": "https://www.youtube.com/watch?v=5Hhhc0dAy4w"
+        }
+      ],
+      "featured": false,
+      "gallery": [
+        {
+          "src": "/images/projects/crafted-cores-product-animation.jpg",
+          "alt": "Concept artwork for 3D Product Advertising"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,413 @@
+{
+  "description": "Editable Spiderhawk material groups. Matching source materials are grouped; edit color/metalness/roughness/opacity once for each group. Three.js standard materials keep source GLB extension properties such as transmission and clearcoat.",
+  "model": "assets/models/spiderhawk2.0.glb",
+  "deduplicateIdenticalMaterials": true,
+  "groups": [
+    {
+      "names": [
+        "01 - Default Steel"
+      ],
+      "color": "#c4c4c4",
+      "metalness": 1.0,
+      "roughness": 0.30000001192092896,
+      "opacity": 1,
+      "sourceExtensions": [
+        "KHR_materials_specular",
+        "KHR_materials_ior"
+      ]
+    },
+    {
+      "names": [
+        "04 - MetalicWhite"
+      ],
+      "color": "#fffafa",
+      "metalness": 0.20876826345920563,
+      "roughness": 0,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "02 - Dark Mate Steel"
+      ],
+      "color": "#262625",
+      "metalness": 0,
+      "roughness": 0.20000000298023224,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "Basement"
+      ],
+      "color": "#ffffff",
+      "metalness": 0,
+      "roughness": 0.8131524324417114,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "06 - Noisy White"
+      ],
+      "color": "#ffffff",
+      "metalness": 0,
+      "roughness": 0.9272727370262146,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "07 - Shiny White"
+      ],
+      "color": "#ffffff",
+      "metalness": 0.14937740564346313,
+      "roughness": 0,
+      "opacity": 1,
+      "sourceExtensions": [
+        "KHR_materials_clearcoat",
+        "KHR_materials_specular",
+        "KHR_materials_ior"
+      ]
+    },
+    {
+      "names": [
+        "08 - Steel"
+      ],
+      "color": "#b8b8b8",
+      "metalness": 0.5,
+      "roughness": 0.04070982336997986,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "09 - Screw"
+      ],
+      "color": "#6b6b6b",
+      "metalness": 0.5,
+      "roughness": 0.20354905724525452,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "05 - Plastic White"
+      ],
+      "color": "#d4d4d4",
+      "metalness": 0,
+      "roughness": 0.8131524324417114,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "11 - Blue Dark"
+      ],
+      "color": "#4a484f",
+      "metalness": 0.4676409065723419,
+      "roughness": 0.14926931262016296,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "smooth metal.014",
+        "smooth metal.015",
+        "smooth metal.019",
+        "smooth metal.022"
+      ],
+      "color": "#675642",
+      "metalness": 1.0,
+      "roughness": 0.2613292932510376,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "weathered light blue paint",
+        "weathered light blue paint.039",
+        "weathered light blue paint.033",
+        "weathered light blue paint.035",
+        "weathered light blue paint.003",
+        "weathered light blue paint.041",
+        "weathered light blue paint.043"
+      ],
+      "color": "#2e304d",
+      "metalness": 1.0,
+      "roughness": 0.17924529314041138,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "copper brushed crome",
+        "copper brushed crome.001",
+        "copper brushed crome.006"
+      ],
+      "color": "#b87333",
+      "metalness": 1.0,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "smooth metal",
+        "smooth metal.006",
+        "smooth metal.023"
+      ],
+      "color": "#675642",
+      "metalness": 1.0,
+      "roughness": 0.3330000042915344,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "rubber mat",
+        "rubber mat.003"
+      ],
+      "color": "#1a1a1a",
+      "metalness": 0,
+      "roughness": 0.3499999940395355,
+      "opacity": 1,
+      "sourceExtensions": [
+        "KHR_materials_specular"
+      ]
+    },
+    {
+      "names": [
+        "force field paint simplified"
+      ],
+      "color": "#6069e7",
+      "metalness": 0,
+      "roughness": 0,
+      "opacity": 0.25,
+      "sourceExtensions": [
+        "KHR_materials_transmission"
+      ]
+    },
+    {
+      "names": [
+        "outer pannels"
+      ],
+      "color": "#e74707",
+      "metalness": 1.0,
+      "roughness": 0.4063444137573242,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "metal"
+      ],
+      "color": "#606060",
+      "metalness": 1.0,
+      "roughness": 0.28247731924057007,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "titanium smooth metal",
+        "titanium smooth metal.011"
+      ],
+      "color": "#232539",
+      "metalness": 1.0,
+      "roughness": 0.3036253750324249,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "copper"
+      ],
+      "color": "#b87333",
+      "metalness": 1.0,
+      "roughness": 0.06042296066880226,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "glass",
+        "glass.005"
+      ],
+      "color": "#e7e7e7",
+      "metalness": 0,
+      "roughness": 0,
+      "opacity": 1,
+      "sourceExtensions": [
+        "KHR_materials_transmission",
+        "KHR_materials_ior"
+      ]
+    },
+    {
+      "names": [
+        "cable",
+        "screen",
+        "wheel",
+        "wheel rim"
+      ],
+      "color": "#e7e7e7",
+      "metalness": 0,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "base body"
+      ],
+      "color": "#ffffff",
+      "metalness": 0.550000011920929,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "ion engine exost"
+      ],
+      "color": "#00c5ff",
+      "metalness": 0,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "brushed chrome"
+      ],
+      "color": "#817d72",
+      "metalness": 1.0,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": [
+        "KHR_materials_clearcoat"
+      ]
+    },
+    {
+      "names": [
+        "engine exost",
+        "engine exost.001"
+      ],
+      "color": "#ff0061",
+      "metalness": 0,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "smooth metal.012"
+      ],
+      "color": "#809ab4",
+      "metalness": 1.0,
+      "roughness": 0,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "metal cable"
+      ],
+      "color": "#e7e7e7",
+      "metalness": 1.0,
+      "roughness": 0.16539925336837769,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "smooth metal.001"
+      ],
+      "color": "#c80200",
+      "metalness": 1.0,
+      "roughness": 0.2613292932510376,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "smooth metal.004",
+        "smooth metal.020"
+      ],
+      "color": "#c89600",
+      "metalness": 1.0,
+      "roughness": 0.2613292932510376,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "smooth metal.005"
+      ],
+      "color": "#c80097",
+      "metalness": 1.0,
+      "roughness": 0.2613292932510376,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "radiators"
+      ],
+      "color": "#b6b6b6",
+      "metalness": 0.24773414433002472,
+      "roughness": 0.7567976117134094,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "titanium smooth metal.003",
+        "smooth metal.018",
+        "brushed chrome.001",
+        "smooth metal.021",
+        "smooth metal.002"
+      ],
+      "color": "#ffffff",
+      "metalness": 1.0,
+      "roughness": 1.0,
+      "opacity": 1,
+      "sourceExtensions": []
+    },
+    {
+      "names": [
+        "plasma.001",
+        "plasma"
+      ],
+      "color": "#00beff",
+      "metalness": 0,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "names": [
+        "light.001"
+      ],
+      "color": "#000000",
+      "metalness": 1.0,
+      "roughness": 1.0,
+      "opacity": 1,
+      "sourceExtensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "names": [
+        "power cable"
+      ],
+      "color": "#00e7e1",
+      "metalness": 0,
+      "roughness": 0.5,
+      "opacity": 1,
+      "sourceExtensions": []
+    }
+  ]
+}

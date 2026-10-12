@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Image Mask Editor Prototype</title>
+</head>
+<body>
+    <div class="editor">
+    <header class="editor-header">
+        <div>
+        <h1>Organic Image Mask</h1>
+        <p>Procedural noise and animated radial masking</p>
+        </div>
+        <button id="export" class="export-btn">Export JSON</button>
+    </header>
+
+    <main class="workspace">
+        <section class="preview" aria-label="Effect preview">
+        <canvas id="effect-canvas" width="400" height="600"></canvas>
+        <p id="error" class="error" hidden></p>
+        </section>
+
+        <details class="controls" open>
+        <summary>
+            <span>Effect Settings</span>
+            <span class="chevron" aria-hidden="true">⌄</span>
+        </summary>
+
+        <div class="control-content">
+            <h2 class="group-title">NOISE</h2>
+
+            <label class="slider-control" for="freq">
+            <span>
+                <span>Noise Scale</span>
+                <output id="freq-value">5.0</output>
+            </span>
+            <input
+                id="freq"
+                type="range"
+                min="2"
+                max="12"
+                step="0.5"
+                value="5"
+            />
+            <small>Controls the size of the noise features.</small>
+            </label>
+
+            <label class="slider-control" for="octaves">
+            <span>
+                <span>Noise Detail</span>
+                <output id="octaves-value">3</output>
+            </span>
+            <input
+                id="octaves"
+                type="range"
+                min="1"
+                max="5"
+                step="1"
+                value="3"
+            />
+            <small>More detail adds finer variations to the edge.</small>
+            </label>
+
+            <h2 class="group-title">MASK</h2>
+
+            <label class="slider-control" for="strength">
+            <span>
+                <span>Edge Distortion</span>
+                <output id="strength-value">35%</output>
+            </span>
+            <input
+                id="strength"
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                value="35"
+            />
+            <small>Controls how far the noise pushes the boundary.</small>
+            </label>
+
+            <label class="slider-control" for="radius">
+            <span>
+                <span>Mask Radius</span>
+                <output id="radius-value">55%</output>
+            </span>
+            <input
+                id="radius"
+                type="range"
+                min="10"
+                max="100"
+                step="1"
+                value="55"
+            />
+            </label>
+
+            <label class="slider-control" for="softness">
+            <span>
+                <span>Edge Softness</span>
+                <output id="softness-value">12%</output>
+            </span>
+            <input
+                id="softness"
+                type="range"
+                min="1"
+                max="30"
+                step="1"
+                value="12"
+            />
+            <small>Controls the width of the fade around the edge.</small>
+            </label>
+
+            <h2 class="group-title">ANIMATION</h2>
+
+            <label class="slider-control" for="speed">
+            <span>
+                <span>Animation Speed</span>
+                <output id="speed-value">1.0×</output>
+            </span>
+            <input
+                id="speed"
+                type="range"
+                min="0"
+                max="3"
+                step="0.1"
+                value="1"
+            />
+            <small>0 pauses motion; 1 is normal speed.</small>
+            </label>
+
+            <label class="toggle-control" for="animate">
+            <input id="animate" type="checkbox" checked />
+            <span>Enable animation</span>
+            </label>
+
+            <div class="button-row">
+            <button id="reset" class="secondary-btn" type="button">
+                Reset
+            </button>
+            <button
+                id="export-bottom"
+                class="export-btn"
+                type="button"
+            >
+                Export JSON
+            </button>
+            </div>
+
+            <p id="status" class="status" aria-live="polite">
+            Initializing preview...
+            </p>
+        </div>
+        </details>
+    </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

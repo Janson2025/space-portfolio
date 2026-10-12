@@ -1,0 +1,54 @@
+/* 2. Foundations */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: 400 14px/1.6 var(--font-body);
+}
+
+body::before {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  opacity: 0.12;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.19'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.site-shell {
+  width: min(100%, var(--content-width));
+  margin-inline: auto;
+  overflow: visible;
+  background: #131918;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 4px;
+}

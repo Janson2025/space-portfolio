@@ -1,0 +1,20 @@
+{
+  "description": "Static Rapier box proxies for exploration. Center and halfExtents are ratios of the current ship target size. These proxies are independent of render meshes and shield visuals.",
+  "referenceTargetSize": 96,
+  "profiles": [
+    {
+      "id": "exterior",
+      "label": "Exterior walk test",
+      "proxies": [
+        {
+          "id": "outer-hull-blockout",
+          "kind": "box",
+          "centerRatio": [0, 0.203, 0],
+          "halfExtentsRatio": [0.52, 0.203, 0.437],
+          "purpose": "Conservative first-pass hull obstacle; replaced by a walkable hull surface plus deck collision zones as those are authored."
+        }
+      ]
+    }
+  ],
+  "futureAuthoringConvention": "Create low-poly or box collision proxies in a dedicated Blender COLLISION collection, name them with stable zone and proxy IDs, and export them alongside the visual ship. Keep collision proxies separate from render meshes and all shield meshes. Add deck floors, room walls, ramps, and door openings as named proxies under a separate interior profile."
+}

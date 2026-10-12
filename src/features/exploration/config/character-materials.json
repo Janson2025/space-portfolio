@@ -1,0 +1,137 @@
+{
+  "description": "Editable MToon material settings from Kate.vrm. Change colors as hex values and adjust toon shading values per material.",
+  "model": "assets/models/Kate.vrm",
+  "materials": [
+    {
+      "name": "N00_000_00_FaceMouth_00_FACE (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#f7cfdb",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_EyeIris_00_EYE (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_EyeHighlight_00_EYE (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_Face_00_SKIN (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#f7cfdb",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineWidthFactor": 0.0008,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_EyeWhite_00_EYE (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_FaceBrow_00_FACE (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_FaceEyelash_00_FACE (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_FaceEyeline_00_FACE (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": 0.7099999,
+      "shadingToonyFactor": 0.909999967,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_Body_00_SKIN (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#f7cfdb",
+      "shadingShiftFactor": -0.0500000119,
+      "shadingToonyFactor": 0.95,
+      "outlineWidthFactor": 0.0008,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_00_HairBack_00_HAIR (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": -0.199999988,
+      "shadingToonyFactor": 0.8,
+      "outlineColor": "#79bebc"
+    },
+    {
+      "name": "N00_008_01_Shoes_01_CLOTH (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#c6c6c6",
+      "shadingShiftFactor": -0.0500000119,
+      "shadingToonyFactor": 0.95,
+      "outlineWidthFactor": 0.0008,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_007_01_Tops_01_CLOTH (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#cfd6f7",
+      "shadingShiftFactor": -0.0500000119,
+      "shadingToonyFactor": 0.95,
+      "outlineWidthFactor": 0.0008,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_001_01_Bottoms_01_CLOTH (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#f7cfdb",
+      "shadingShiftFactor": -0.0500000119,
+      "shadingToonyFactor": 0.95,
+      "outlineWidthFactor": 0.0008,
+      "outlineColor": "#461720"
+    },
+    {
+      "name": "N00_000_Hair_00_HAIR (Instance)",
+      "color": "#ffffff",
+      "opacity": 1,
+      "shadeColor": "#ffffff",
+      "shadingShiftFactor": -0.199999988,
+      "shadingToonyFactor": 0.8,
+      "outlineColor": "#461720"
+    }
+  ]
+}

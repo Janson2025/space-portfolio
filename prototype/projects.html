@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121716">
+  <meta name="description" content="Selected software, web, science, and 3D projects by James Call.">
+  <title>Projects — James Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="James Portfolio home"><span class="brand-mark">J<span>/</span></span><span class="brand-name">JAMES<span>PORTFOLIO</span></span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="projects.html" aria-current="page">Projects</a>
+        <a class="nav-link" href="#journal" data-planned>Blog</a>
+        <a class="nav-link" href="#about" data-planned>About</a>
+        <a class="nav-link" href="#store" data-planned>Store</a>
+      </nav>
+      <a class="contact-link" href="mailto:callajames2025@gmail.com">Let's talk <span>↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+    </header>
+    <main class="projects-page">
+      <section class="projects-intro">
+        <div class="section-kicker"><span>ARCHIVE / 01</span><span>SOFTWARE · SCIENCE · 3D</span></div>
+        <div class="projects-title-row"><div><p class="eyebrow">SELECTED BUILDS & EXPERIMENTS</p><h1>PROJECT<br><span class="outlined">ARCHIVE.</span></h1></div><p class="projects-lede">A collection of tools, experiments, and interactive experiences built across web development, scientific analysis, games, and 3D.</p></div>
+        <div class="project-toolbar"><div class="category-filters" id="category-filters" role="group" aria-label="Filter projects by category"></div><div class="view-switch" role="group" aria-label="Project layout"><button type="button" data-view="grid" aria-pressed="true" aria-label="Card layout">GRID <span>▦</span></button><button type="button" data-view="list" aria-pressed="false" aria-label="List layout">LIST <span>☷</span></button></div></div>
+        <p class="results-count" id="results-count" aria-live="polite"></p>
+      </section>
+      <section class="project-archive" aria-label="Portfolio projects"><div class="archive-grid" id="project-archive"><p class="loading-note">Loading project archive…</p></div></section>
+    </main>
+    <footer class="footer"><a class="brand" href="index.html"><span class="brand-mark">J<span>/</span></span><span class="brand-name">JAMES<span>PORTFOLIO</span></span></a><span>SOFTWARE ENGINEER · WEB DEVELOPER · 3D MAKER</span><span>© 2026 JAMES PORTFOLIO</span></footer>
+  </div>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

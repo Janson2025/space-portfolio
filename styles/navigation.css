@@ -1,0 +1,75 @@
+/* 3. Site navigation and shared page chrome */
+.topbar {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  display: flex;
+  height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: clamp(24px, 5.2vw, 84px);
+  border-bottom: 1px solid var(--color-line);
+  background: rgba(17, 22, 21, 0.94);
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid var(--color-copper);
+  color: var(--color-peach);
+  font: 700 19px var(--font-display);
+}
+
+.brand-mark span { color: var(--color-copper); }
+.brand-name { font: 500 11px/1.2 var(--font-mono); letter-spacing: 0.15em; }
+.brand-name span { display: block; margin-top: 4px; color: var(--color-muted); font-size: 9px; letter-spacing: 0.24em; }
+
+.main-nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 45px); }
+.nav-link,
+.contact-link { color: #9ca199; font: 11px var(--font-mono); text-decoration: none; transition: color 0.2s; }
+.nav-link:hover,
+.nav-link.active,
+.contact-link:hover { color: var(--color-peach); }
+.nav-link.active { position: relative; }
+.nav-link.active::after { position: absolute; right: 0; bottom: -32px; left: 0; height: 2px; background: var(--color-copper); content: ''; }
+.contact-link { padding: 10px 14px; border: 1px solid var(--color-line-strong); color: var(--color-text); }
+.contact-link span { margin-left: 10px; color: var(--color-copper); }
+.menu-toggle { display: none; }
+
+.footer {
+  display: flex;
+  min-height: 94px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px clamp(24px, 5.2vw, 84px);
+}
+.footer > span { color: var(--color-faint); font: 7px var(--font-mono); letter-spacing: 0.1em; }
+
+.toast {
+  position: fixed;
+  z-index: 150;
+  bottom: 22px;
+  left: 50%;
+  padding: 12px 18px;
+  transform: translate(-50%, 20px);
+  border: 1px solid var(--color-line-strong);
+  background: #232e2a;
+  color: var(--color-text);
+  font: 10px var(--font-mono);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.toast.show { transform: translate(-50%, 0); opacity: 1; }

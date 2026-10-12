@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121716">
+  <meta name="description" content="James Portfolio — independent web design, development, and software engineering.">
+  <title>James Portfolio — Build beyond the ordinary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="James Portfolio home"><span class="brand-mark">J<span>/</span></span><span class="brand-name">JAMES<span>PORTFOLIO</span></span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="#journal" data-planned>Blog</a>
+        <a class="nav-link" href="#about" data-planned>About</a>
+        <a class="nav-link" href="#store" data-planned>Store</a>
+      </nav>
+      <a class="contact-link" href="mailto:callajames2025@gmail.com">Let's talk <span>↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> WEB DESIGN · DEVELOPMENT · SOFTWARE ENGINEERING <span class="eyebrow-line"></span> 2026</p>
+          <h1 id="hero-title">BUILD BEYOND<br>THE <span class="outlined">ORDINARY.</span></h1>
+        </div>
+        <figure class="ship-stage">
+          <img class="ship-background" src="../assets/images/background.png" alt="" aria-hidden="true" fetchpriority="high">
+          <img class="ship-banner" src="../assets/images/spaceship.png" alt="A copper and violet spacecraft flying through a glowing nebula" fetchpriority="high">
+        </figure>
+        <div class="hero-details">
+          <p class="hero-subtitle">Digital experiences built with <span class="bold">curiosity</span>, <span>craft</span>, and <span>engineering detail</span>.</p>
+          <p class="hero-description">I’m James Call, a software engineering graduate who works across web development, interactive 3D, data analysis, and visual design. I enjoy making complex tools feel clear, useful, and inviting.</p>
+          <div class="hero-actions"><a class="button button-primary" href="projects.html">Explore selected work <span>↗</span></a><a class="button button-quiet" href="#about" data-planned>More about me <span>↓</span></a></div>
+          <div class="hero-meta"><span><i>01</i> DESIGN WITH INTENT</span><span><i>02</i> ENGINEER WITH CARE</span><span><i>03</i> STAY CURIOUS</span></div>
+        </div>
+        <div class="scroll-cue"><span class="scroll-line"></span> SCROLL TO TRANSMISSION</div>
+        <div class="hero-index">J / 01</div>
+      </section>
+
+      <section class="signal-strip" aria-label="Capabilities"><div class="strip-label">TRANSMISSION / CAPABILITIES</div><div class="signal-items"><span>WEB DESIGN <b>✳</b></span><span>FRONTEND DEVELOPMENT <b>✳</b></span><span>SOFTWARE ENGINEERING <b>✳</b></span><span>3D WORLDS <b>✳</b></span></div></section>
+
+      <section class="next-section work-section" id="projects">
+        <div class="section-kicker"><span>01 / SELECTED WORK</span><span>FIELD NOTES · 2023—2025</span></div>
+        <div class="work-heading"><div><p class="eyebrow">BUILT ACROSS DISCIPLINES</p><h2>FROM DATA<br>TO <em>DIMENSION.</em></h2></div><p class="work-intro">A few projects where software, science, design, and 3D meet. Each one starts with a real problem and a reason to make the experience better.</p></div>
+        <div class="featured-projects" id="featured-projects" aria-live="polite"><p class="loading-note">Loading selected work…</p></div>
+        <a class="text-link all-work-link" href="projects.html">Explore all projects <span>↗</span></a>
+      </section>
+
+      <section class="contact-band" id="contact"><div><p class="eyebrow">OPEN CHANNEL / 01</p><h2>HAVE A GOOD<br>MISSION IN MIND?</h2></div><a class="button button-primary" href="mailto:callajames2025@gmail.com">Get in touch <span>↗</span></a><div class="contact-stub"><a href="mailto:callajames2025@gmail.com">EMAIL</a> · <a href="https://www.linkedin.com/in/james-call-4a0020221/" target="_blank" rel="noreferrer">LINKEDIN</a> · <a href="https://github.com/jacall2016" target="_blank" rel="noreferrer">GITHUB</a></div></section>
+    </main>
+    <footer class="footer"><a class="brand" href="index.html"><span class="brand-mark">J<span>/</span></span><span class="brand-name">JAMES<span>PORTFOLIO</span></span></a><span>SOFTWARE ENGINEER · WEB DEVELOPER · 3D MAKER</span><span>© 2026 JAMES PORTFOLIO</span></footer>
+  </div>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+.explore-loading {
+  min-height: 50vh;
+  display: grid;
+  place-items: center;
+  color: var(--color-peach);
+  font: 10px var(--font-mono);
+  letter-spacing: 0.12em;
+}
+
+.explore-page {
+  position: relative;
+  display: flex;
+  height: calc(100svh - 82px - 94px);
+  min-height: 380px;
+  flex-direction: column;
+  padding: clamp(12px, 2vw, 24px) var(--page-gutter);
+}
+
+.explore-stage {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid rgba(224, 169, 115, 0.28);
+  background: #11191d;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+}
+
+.explore-canvas { position: absolute !important; z-index: 0; inset: 0; }
+.explore-hud { position: absolute; z-index: 1; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; pointer-events: none; }
+.explore-status-group { position: absolute; top: 18px; left: 18px; display: flex; width: max-content; max-width: calc(100% - 36px); align-items: center; flex-wrap: wrap; gap: 8px; }
+.explore-readout { width: max-content; align-self: flex-start; padding: 9px 12px; border: 1px solid rgba(202, 190, 169, 0.25); background: rgba(18, 24, 25, 0.78); color: #d4c2ad; font: 8px var(--font-mono); letter-spacing: 0.12em; }
+.explore-readout .status-dot { margin-right: 8px; }
+.explore-camera-toggle { padding: 9px 11px; border: 1px solid rgba(202, 190, 169, 0.25); background: rgba(18, 24, 25, 0.88); color: #e6d5c2; font: 8px var(--font-mono); letter-spacing: 0.1em; cursor: pointer; pointer-events: auto; }
+.explore-camera-toggle[aria-pressed="true"] { border-color: rgba(224, 169, 115, 0.65); color: var(--color-peach); }
+.explore-camera-toggle span { margin-left: 5px; color: var(--color-copper); }
+.explore-exit { position: absolute; right: 18px; bottom: 18px; z-index: 2; pointer-events: auto; }
+.explore-controls { display: flex; max-width: 660px; align-self: flex-start; flex-wrap: wrap; gap: 7px; }
+.explore-controls span { display: inline-flex; align-items: center; gap: 7px; padding: 7px 9px; border: 1px solid rgba(202, 190, 169, 0.2); background: rgba(18, 24, 25, 0.82); color: #e6d5c2; font: 8px var(--font-mono); }
+.explore-controls i { color: #9daba7; font-size: 7px; font-style: normal; }
+.explore-controls kbd { padding: 2px 5px; border: 1px solid rgba(202, 190, 169, 0.35); color: #e6d5c2; font: inherit; white-space: nowrap; }
+.explore-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 28px; color: var(--color-peach); font: 11px/1.8 var(--font-mono); text-align: center; }
+
+.explore-dev-panel { position: fixed; z-index: 300; top: 96px; right: clamp(18px, 4vw, 64px); width: min(320px, calc(100vw - 36px)); max-height: calc(100svh - 108px); color: #ead9c4; font-family: var(--font-mono); pointer-events: auto; }
+.dev-panel-toggle { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border: 1px solid rgba(224, 169, 115, 0.45); background: rgba(17, 23, 24, 0.94); color: #e6d5c2; font: 8px var(--font-mono); letter-spacing: 0.12em; text-align: left; cursor: pointer; }
+.dev-panel-toggle > span:last-child { color: var(--color-copper); font-size: 14px; }
+.dev-panel-toggle .status-dot { margin-right: auto; }
+.dev-panel-content { max-height: min(68vh, calc(100svh - 156px), 560px); overflow: auto; padding: 12px; border: 1px solid rgba(224, 169, 115, 0.32); border-top: 0; background: rgba(17, 23, 24, 0.97); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45); }
+.dev-panel-heading { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; color: #d4c2ad; font-size: 7px; letter-spacing: 0.12em; }
+.dev-panel-heading span:last-child { color: #82908b; }
+.dev-tabs { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 14px; border-bottom: 1px solid rgba(224, 169, 115, 0.24); }
+.dev-tabs button { padding: 9px 5px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #89948e; font: 8px var(--font-mono); letter-spacing: 0.1em; cursor: pointer; }
+.dev-tabs button[aria-selected="true"] { border-bottom-color: var(--color-copper); color: var(--color-peach); }
+.dev-tab-content { display: grid; gap: 12px; }
+.dev-range { display: grid; gap: 6px; color: #c6c8bd; font-size: 8px; letter-spacing: 0.04em; }
+.dev-range > span { display: flex; justify-content: space-between; gap: 8px; }
+.dev-range output { color: var(--color-peach); white-space: nowrap; }
+.dev-range input { width: 100%; height: 14px; margin: 0; accent-color: var(--color-copper); cursor: ew-resize; }
+.dev-check { display: flex; align-items: center; gap: 9px; color: #c6c8bd; font-size: 8px; cursor: pointer; }
+.dev-check input { width: 13px; height: 13px; margin: 0; accent-color: var(--color-copper); }
+.dev-shields-details { padding-top: 9px; border-top: 1px solid rgba(224, 169, 115, 0.2); color: #c6c8bd; font-size: 8px; }
+.dev-shields-details summary { color: var(--color-peach); cursor: pointer; }
+.dev-shield-list { display: grid; gap: 9px; padding: 12px 4px 2px; }
+
+@media (max-width: 1000px) {
+  .explore-page { padding-inline: 20px; }
+}
+
+@media (max-width: 700px) {
+  .ship-explore-button { right: 4px; bottom: 4%; padding: 8px 10px; gap: 8px; font-size: 7px; }
+  .explore-page { height: calc(100svh - 68px - 58px); min-height: 340px; padding: 10px 12px; }
+  .explore-hud { padding: 10px; }
+  .explore-status-group { top: 10px; left: 10px; gap: 5px; }
+  .explore-readout { padding: 7px 8px; font-size: 7px; }
+  .explore-camera-toggle { padding: 7px 8px; font-size: 7px; }
+  .explore-controls { max-width: min(360px, calc(100% - 138px)); gap: 5px; }
+  .explore-controls span { gap: 5px; padding: 6px 7px; font-size: 7px; }
+  .explore-controls i { font-size: 6px; }
+  .explore-exit { right: 10px; bottom: 10px; padding: 8px 10px; font-size: 7px; }
+  .explore-dev-panel { top: 78px; right: 12px; width: min(310px, calc(100vw - 24px)); }
+  .explore-dev-panel { max-height: calc(100svh - 88px); }
+  .dev-panel-content { max-height: min(62vh, calc(100svh - 136px), 500px); }
+}
+
+@media (max-height: 620px) {
+  .explore-page { min-height: 0; padding-block: 8px; }
+  .explore-hud { padding: 8px; }
+  .explore-controls { max-width: 540px; }
+  .explore-controls span { padding-block: 5px; }
+}

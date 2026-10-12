@@ -1,0 +1,18 @@
+{
+  "shipPreview": {
+    "environmentPreset": "sunset",
+    "environmentIntensity": 1.25,
+    "ambient": { "intensity": 0.35, "color": "#ffffff" },
+    "directional": { "position": [3, 4, 5], "intensity": 1.1, "color": "#ffe0c0" },
+    "point": { "position": [-3, -1, 1], "intensity": 4, "distance": 0, "color": "#4fbdc2" }
+  },
+  "exploration": {
+    "environmentPreset": "sunset",
+    "environmentIntensity": 0.9,
+    "ambient": { "intensity": 0.8, "color": "#ffffff" },
+    "directional": { "position": [30, 75, 40], "intensity": 2.6, "color": "#ffe1c1" },
+    "point": { "position": [-40, 25, -50], "intensity": 160, "distance": 180, "color": "#4fbdc2" },
+    "background": "#11191d",
+    "fog": { "near": 85, "far": 290, "color": "#11191d" }
+  }
+}

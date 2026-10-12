@@ -1,0 +1,21 @@
+/* 1. Design tokens */
+:root {
+  color-scheme: dark;
+  --color-bg: #111615;
+  --color-surface: #171e1c;
+  --color-panel: #202426;
+  --color-line: rgba(194, 192, 166, 0.16);
+  --color-line-strong: rgba(194, 192, 166, 0.3);
+  --color-text: #e9e5d9;
+  --color-muted: #a8a99f;
+  --color-faint: #747b74;
+  --color-copper: #d78e57;
+  --color-teal: #789a90;
+  --color-red: #bb5e50;
+  --color-peach: #d8b18c;
+  --font-body: 'Manrope', sans-serif;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --page-gutter: clamp(24px, 7.6vw, 122px);
+  --content-width: 1600px;
+}

@@ -1,0 +1,79 @@
+{
+  "name": "James Call",
+  "siteName": "James Portfolio",
+  "headline": "Software engineer and web developer building thoughtful digital experiences across code, data, and 3D.",
+  "summary": "Software Engineering graduate with experience spanning interactive 3D web applications, research data analysis, educational mapping, and visual design.",
+  "contact": {
+    "email": "callajames2025@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/james-call-4a0020221/",
+    "github": "https://github.com/jacall2016",
+    "portfolio": "https://james-call-portfolio.netlify.app/",
+    "youtube": "https://www.youtube.com/@worldkeyvideo9080"
+  },
+  "education": [
+    {
+      "institution": "Brigham Young University–Idaho",
+      "degree": "Bachelor of Science in Software Engineering",
+      "location": "Rexburg, Idaho",
+      "completed": "April 2025",
+      "certifications": [
+        "Web Full Stack Certification",
+        "Web Frontend Certification",
+        "CSWA SolidWorks Certification"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "organization": "Brigham Young University–Pathway Worldwide",
+      "role": "Academic Grader (Online, Specialized)",
+      "dates": "January 2024–Present"
+    },
+    {
+      "organization": "Utah State University, Aerospace Engineering Department",
+      "role": "Software Engineering Intern",
+      "dates": "September 2024–November 2024"
+    },
+    {
+      "organization": "Brigham Young University, Department of Chemistry & Biochemistry",
+      "role": "Software Engineering Intern",
+      "dates": "August 2023–February 2024"
+    },
+    {
+      "organization": "Crafted Cores",
+      "role": "Product Design & Manufacturing",
+      "dates": "July 2023–September 2023"
+    }
+  ],
+  "skills": {
+    "softwareAndWeb": [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "C++",
+      "C#",
+      "SQLite",
+      "PostgreSQL",
+      "Three.js",
+      "React",
+      "Node.js",
+      "Next.js",
+      "Tailwind CSS",
+      "HTML",
+      "CSS",
+      "SCSS"
+    ],
+    "designAnd3D": [
+      "3D animation",
+      "SolidWorks",
+      "InDesign",
+      "UI/UX",
+      "Typography",
+      "Illustrator",
+      "Photoshop",
+      "Blender",
+      "Figma",
+      "Unity"
+    ]
+  }
+}
